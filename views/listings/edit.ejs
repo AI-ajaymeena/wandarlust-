@@ -1,0 +1,58 @@
+<%layout("/layout/boilerplate")%>
+
+    <form method="POST" action="/listings/<%=listing._id%>?_method=PUT" novalidate class="needs-validation" enctype="multipart/form-data">
+        <div class="row">
+            <div class=" col-8 offset-2">
+
+                <div class="mb-3">
+                    <label for="title" class="form-label">Title</label>
+                    <input type="text" class="form-control" value="<%=listing.title%>" name="listing[title]" required>
+                    <div class="valid-feedback">Title enter succesfully</div>
+                </div>
+                <div class="mb-3">
+                    <label for="description" class="form-label">Description</label>
+                    <textarea type="text" class="form-control" value="<%=listing.description%>"
+                        name="listing[description]" required></textarea>
+                    <div class="invalid-feedback">Please enter a short description.</div>
+                </div>
+
+                <div>
+                    <p>Original image</p>
+                    <img src="<%=originalImageUrl%>"/>
+                </div>
+
+                <div class="mb-3">
+                    <label for="image" class="form-label">Upload new Image</label>
+                    <input type="file" class="form-control" value="<%=listing.image%>" name="listing[image]">
+                </div>
+                <div class="row">
+                    <div class="mb-3 col-md-4">
+                        <label for="price" class="form-label">Price</label>
+                        <input type="text" class="form-control" value="<%=listing.price%>" name="listing[price]"
+                            required>
+                        <div class="invalid-feedback">Price should be valid.</div>
+
+                    </div>
+                    <div class="mb-3 col-md-8">
+                        <label for="country" class="form-label">Country</label>
+                        <input type="text" class="form-control" value="<%=listing.country%>" name="listing[country]"
+                            required>
+                        <div class="invalid-feedback">country should be valid</div>
+
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="location" class="form-label">Location</label>
+                    <input type="text" class="form-control" value="<%=listing.location%>" name="listing[location]"
+                        required>
+                    <div class="invalid-feedback">Location should be valid </div>
+
+                </div>
+                <br />
+                <br />
+
+                <button class="btn btn-dark edit-btn">Edit Details</button>
+            </div>
+        </div>
+    </form>
+    <script src="/js/script.js"></script>
