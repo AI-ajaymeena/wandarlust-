@@ -19,6 +19,10 @@
                     </i>
                 </p>
                 <p class="card-text">
+                    Property Category: <%=listing.category%>
+                </p>
+
+                <p class="card-text">
                     <%=listing.description%>
                 </p>
                 <p class="card-text">₹<%= listing.price != null ? listing.price.toLocaleString("en-IN") : '0' %>/night</p>
@@ -82,14 +86,6 @@
                         <button type="submit" class="btn btn-outline-dark">
                             Submit
                         </button>
-                        <!-- 
-                        <div class="mb-3 mt-3">
-                            <label for="comment" class="form-label">Comments</label>
-                            <textarea name="review[comment]" id="comment" class="form-control" cols="30" rows="5"
-                                required></textarea>
-                            <div class="invalid-feedback">please write comment for review</div>
-                        </div>
-                        <button type="submit" class="btn btn-outline-dark">submit</button> -->
                     </form>
                     <%}%>
             </div>

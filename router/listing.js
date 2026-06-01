@@ -10,9 +10,6 @@ const {storage}=require("../cloudConfig.js")
 const upload = multer({storage});
 
 
-// router.route("/")
-//     .get(WrapAsync(listingController.index))  //index route
-//     .post(isLogedIn,validateListing,upload.single("listing[image]"),WrapAsync(listingController.createListing));  //create route  
 
 router.route("/")
     .get(WrapAsync(listingController.index))
@@ -33,5 +30,6 @@ router.route("/:id")
 
 //edit route
 router.get("/:id/edit",isLogedIn,isOwner,WrapAsync(listingController.editListing));
+
 
 module.exports=router;

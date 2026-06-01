@@ -12,6 +12,8 @@
             text-align: center;
             margin-top: 2rem;
             opacity: 0.7;
+            text-decoration: none;
+            color: black;
         }
 
         .filter:hover {
@@ -23,72 +25,68 @@
             display: none;
         }
 
-        .tax-toggle{
+        .tax-toggle {
             border: 1px solid black;
-            border-radius:1rem ;
+            border-radius: 1rem;
             padding: 1rem;
             margin-left: 2rem;
             align-items: center;
             height: 3rem;
             display: flex;
         }
-        .tax-toggle .form-switch .form-check-input{
+
+        .tax-toggle .form-switch .form-check-input {
             background-color: #ff385c;
             border: white;
         }
-        /* Large screen */
 
-        /* .toggle-btn {
-            display: none;
-        }
-
-        .filters {
-            display: flex;
-            gap: 20px;
-        } */
     </style>
 
     <div class="filters">
-        <div class="filter">
+        <a href="/listings?category=trending" class="filter">
             <div><i class="fa-solid fa-fire"></i></div>
             <p>Trending</p>
-        </div>
-        <div class="filter">
+        </a>
+
+        <a href="/listings?category=Farmhouse" class="filter">
             <div><i class="fa-solid fa-bed"></i></div>
-            <p>Room</p>
-        </div>
-        <div class="filter">
+            <p>Farmhouse</p>
+        </a>
+
+        <a href="/listings?category=City" class="filter">
             <div><i class="fa-solid fa-city"></i></div>
             <p>Iconic City</p>
-        </div>
-        <div class="filter">
+        </a>
+
+        <a href="/listings?category=Mountain" class="filter">
             <div><i class="fa-solid fa-mountain"></i></div>
             <p>Mountain</p>
-        </div>
-        <div class="filter">
+        </a>
+
+        <a href="/listings?category=beach" class="filter">
             <div><i class="fa-solid fa-umbrella-beach"></i></div>
             <p>Beach</p>
-        </div>
+        </a>
 
-        <div class="filter">
+        <a href="/listings?category=Farmhouse" class="filter">
             <div><i class="fa-brands fa-fort-awesome"></i></div>
             <p>Castles</p>
-        </div>
+        </a>
 
-        <div class="filter">
+        <a href="/listings?category=Forest" class="filter">
             <div><i class="fa-solid fa-tent-arrow-left-right"></i></div>
             <p>Camping</p>
-        </div>
+        </a>
 
-        <div class="filter">
+        <a href="/listings?category=Forest" class="filter">
             <div><i class="fa-solid fa-tree"></i></div>
             <p>Forests</p>
-        </div>
+        </a>
 
-        <div class="filter">
+        <a href="/listings?category=Desert" class="filter">
             <div><i class="fa-solid fa-sun"></i></div>
             <p>Deserts</p>
-        </div>
+        </a>
 
         <div class="tax-toggle">
             <div class="form-check-reverse form-switch">
@@ -103,14 +101,15 @@
         <%for(let listing of allListings){%>
             <a href="/listings/<%=listing._id%>" class="listing-link">
                 <div class="card col listing-card">
-                    <img src="<%= listing.image?.url || '/images/default.jpg' %>" class="card-img-top" alt="listing_img" style="height: 20rem;" />
+                    <img src="<%= listing.image?.url || '/images/default.jpg' %>" class="card-img-top" alt="listing_img"
+                        style="height: 20rem;" />
                     <div class="card-img-overlay"></div>
                     <div class="card-body">
                         <p class="card-text">
                             <b>
                                 <%=listing.title%>
                             </b><br />
-                            &#8377;<%= listing.price != null ? listing.price.toLocaleString("en-IN") : '0' %>/night
+                            &#8377;<%= listing.price !=null ? listing.price.toLocaleString("en-IN") : '0' %>/night
                                 <i class="switchinfo">&nbsp; &nbsp;+18%GST</i>
                         </p>
                     </div>
@@ -124,11 +123,11 @@
         const switchInfo = document.getElementsByClassName("switchinfo");
 
         switchTax.addEventListener("click", () => {
-            for (let btn of switchInfo){
-            if (btn.style.display != "inline") {
+            for (let btn of switchInfo) {
+                if (btn.style.display != "inline") {
                     btn.style.display = "inline";
-            }else {
-                btn.style.display = "none";
+                } else {
+                    btn.style.display = "none";
                 }
             }
         });

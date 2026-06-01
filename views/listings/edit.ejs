@@ -25,6 +25,21 @@
                     <label for="image" class="form-label">Upload new Image</label>
                     <input type="file" class="form-control" value="<%=listing.image%>" name="listing[image]">
                 </div>
+
+                <div class="col-12">
+                    <label class="form-label" for="inlineFormSelectPref">Select Category</label></br>
+                    <select class="form-select" id="inlineFormSelectPref" name="listing[category]" required>
+                        <option selected>Select Category</option>
+                        <option value="Mountain">Mountain</option>
+                        <option value="Beach">Beach</option>
+                        <option value="City">City</option>
+                        <option value="Farmhouse">Farmhouse</option>
+                        <option value="Desert">Desert</option>
+                        <option value="Forest">Forest</option>
+                    </select>
+                </div>
+            </br>
+
                 <div class="row">
                     <div class="mb-3 col-md-4">
                         <label for="price" class="form-label">Price</label>
