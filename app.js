@@ -42,6 +42,8 @@ const store = MongoStore.create({
     touchAfter: 24 * 3600,
 });
 
+
+
 store.on("error",(err)=>{
     console.log("session store error",err);
 });
@@ -95,6 +97,10 @@ app.use((err, req, res, next) => {
         message,
         statusCode
     });
+});
+
+app.get("/", (req, res) => {
+    res.redirect("/listings");
 });
 
 app.listen(3000, () => {
