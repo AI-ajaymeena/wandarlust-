@@ -80,6 +80,9 @@ app.use("/listings",listingRouter);
 app.use("/listings/:id/reviews",reviewRouter);
 app.use("/",userRouter);
 
+app.get("/",(req,res)=>{
+    res.redirect("/listings");
+});
 
 app.use((req, res, next) => {
     next(new ExpressError(404, "page not found"));
@@ -99,9 +102,6 @@ app.use((err, req, res, next) => {
     });
 });
 
-app.get("/", (req, res) => {
-    res.redirect("/listings");
-});
 
 app.listen(3000, () => {
     console.log(`server is running on port 3000`);
